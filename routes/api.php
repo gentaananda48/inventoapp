@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\BarangController;
 use App\Http\Controllers\API\PassportAuthController;
+use App\Http\Controllers\API\PostController;
 
 
 /*
@@ -20,8 +21,12 @@ use App\Http\Controllers\API\PassportAuthController;
 Route::post('register', [PassportAuthController::class, 'register']);
 Route::post('login', [PassportAuthController::class, 'login']);
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+Route::middleware('auth:api')->group(function () {
+    Route::resource('posts', PostController::class);
 });
 
 Route::get('/im-index', [BarangController::class, 'index']);
