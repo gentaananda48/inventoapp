@@ -52,6 +52,15 @@ Route::middleware('role:im')->resource('im', InventoryManagerController::class);
 Route::middleware('role:im')->get('/im-list', [InventoryManagerController::class, 'list'])->name('imlist');
 Route::middleware('role:im')->get('/im/{id}/request', [InventoryManagerController::class, 'request'])->name('imrequest');
 
+// Hint resource im
+    //Route get => im => index
+    //Route get => im/create => create
+    //Route post => im => store
+    //Route get => im/{id} => show
+    //Route put/patch => im/{id} => update
+    //Route delete => im/{id} => delete
+    //Route get => im/{id}/edit => edit
+
 // Search Route
 Route::get('/search', [InventoryManagerController::class, 'search'])->name('search');
  
