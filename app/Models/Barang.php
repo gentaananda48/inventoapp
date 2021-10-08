@@ -14,4 +14,9 @@ class Barang extends Model
 
     protected $table = 'barangs';
 
+    public function rules()
+    {
+        //
+    }
+
 }
